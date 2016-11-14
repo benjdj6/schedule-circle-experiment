@@ -1,2 +1,8 @@
-# schedule-circle-experiment
-An experiment in frontend development to represent a schedule as wedges protruding from 2 circles
+# Schedule Circle
+
+###TODO:
+* More README info
+* Implement event submission form
+* Implement arc path calculation
+* Implement arc path generation
+* Implement event model
