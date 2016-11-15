@@ -2,14 +2,15 @@
 <head>
     <link href="style.css" rel="stylesheet">
     <script src="main.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    
 </head>
 <body>
     <svg class="pie">
       <path class="school" id="arc" />
       <circle cx="115" cy="115" r="45"></circle>
     </svg>
-    <form>
+    <form id="event">
       <input type="text" placeholder="Event Name"><br>
       Start Time:
       <input id="start_hr" type="number" min="00" max="12" placeholder="HH"> :
@@ -19,7 +20,7 @@
       <input id="end_hr" type="number" min="00" max="12" placeholder="HH"> :
       <input id="end_mn" type="number" min="00" max="59" placeholder="MM"><br>
       
-      <input type="radio" value="am">AM<br>
+      <input type="radio" value="am">AM
       <input type="radio" value="pm">PM<br>
       <button type="submit">Submit</button>
     </form>
