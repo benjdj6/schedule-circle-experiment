@@ -1,17 +1,25 @@
 circle {
-  fill: transparent;
-  stroke: green;
-  stroke-width: 5;
+  fill: #CAFCD8;
   z-index: 2;
 }
 
 path {
-  fill: green;
+  stroke: #F7E967;
+  stroke-width: 3;
+  fill: transparent;
   z-index: -1;
 }
 
 path.school {
-  fill: navy;
+  stroke: #A9CF54;
+  stroke-width: 3;
+  fill: transparent;
+}
+
+path.work {
+  stroke: #04BFBF;
+  stroke-width: 3;
+  fill: transparent;
 }
 
 svg.pie {
