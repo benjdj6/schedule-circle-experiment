@@ -1,27 +1,31 @@
 <html>
 <head>
     <link href="style.css" rel="stylesheet">
-    <script src="main.js"></script>
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+    <script src="app.js"></script>
     
 </head>
-<body>
+<body ng-app="schedule" ng-controller="MainCtrl">
     <svg class="pie">
       <path class="school" id="arc" />
       <circle cx="115" cy="115" r="45"></circle>
     </svg>
-    <form id="event">
-      <input type="text" placeholder="Event Name"><br>
+    <form id="event" ng-submit="createEvent();">
+      <input type="text" placeholder="Event Name" 
+        ng-model="name"><br>
       Start Time:
-      <input id="start_hr" type="number" min="00" max="12" placeholder="HH"> :
-      <input id="start_mn" type="number" min="00" max="59" placeholder="MM"><br>
+      <input id="start_hr" type="number" min="00" max="12" placeholder="HH" ng-model="start_hr"> :
+      <input id="start_mn" type="number" min="00" max="59" placeholder="MM" ng-model="start_mn"><br>
 
       End Time:
-      <input id="end_hr" type="number" min="00" max="12" placeholder="HH"> :
-      <input id="end_mn" type="number" min="00" max="59" placeholder="MM"><br>
+      <input id="end_hr" type="number" min="00" max="12" placeholder="HH" ng-model="end_hr"> :
+      <input id="end_mn" type="number" min="00" max="59" placeholder="MM" ng-model="end_mn"><br>
       
-      <input type="radio" value="am">AM
-      <input type="radio" value="pm">PM<br>
+      <input type="radio" value="am"
+        ng-model="tod">AM
+      <input type="radio" value="pm"
+        ng-model="tod">PM<br>
       <button type="submit">Submit</button>
     </form>
 </body>
