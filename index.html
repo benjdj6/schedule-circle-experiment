@@ -16,16 +16,19 @@
         ng-model="name"><br>
       Start Time:
       <input id="start_hr" type="number" min="00" max="12" placeholder="HH" ng-model="start_hr"> :
-      <input id="start_mn" type="number" min="00" max="59" placeholder="MM" ng-model="start_mn"><br>
+      <input id="start_mn" type="number" min="00" max="59" placeholder="MM" ng-model="start_mn">
+      <input type="radio" value="am"
+        ng-model="start_tod">AM
+      <input type="radio" value="pm"
+        ng-model="start_tod">PM<br>
 
       End Time:
       <input id="end_hr" type="number" min="00" max="12" placeholder="HH" ng-model="end_hr"> :
-      <input id="end_mn" type="number" min="00" max="59" placeholder="MM" ng-model="end_mn"><br>
-      
+      <input id="end_mn" type="number" min="00" max="59" placeholder="MM" ng-model="end_mn">
       <input type="radio" value="am"
-        ng-model="tod">AM
+        ng-model="end_tod">AM
       <input type="radio" value="pm"
-        ng-model="tod">PM<br>
+        ng-model="end_tod">PM<br>
       <button type="submit">Submit</button>
     </form>
 </body>
