@@ -25,6 +25,11 @@ app.factory('arcs', [function() {
   };
 
   o.create = function(arc) {
+    if(arc.sthour >= arc.endhour && 
+      arc.sttod === arc.endtod && arc.sthour >= arc.endhour) {
+      alert('Invalid start and end times!');
+      return;
+    }
     var r = 115;
     if(arc.priority === "low") {
       r = 75;

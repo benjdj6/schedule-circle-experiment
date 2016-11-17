@@ -46,10 +46,10 @@
     </form>
 
     <svg class="pie">
-      <circle cx="115" cy="115" r="45"></circle>
       <g ng-repeat="path in paths">
         <path class="{{path.category}}" d="{{path.data}}" />
       </g>
+      <circle cx="115" cy="115" r="45"></circle>
     </svg>
 </body>
 </html>
