@@ -41,8 +41,13 @@ app.factory('arcs', [function() {
     var startCoor = polarToCartesian(r, start);
     var endCoor = polarToCartesian(r, end);
 
+    var largeArc = 0;
+    if(end - start >= Math.PI) {
+      largeArc = 1;
+    }
+
     var path = [
-      "M", 115, 115, "L", startCoor[0], startCoor[1], "A", r, r, 1, 0, 1, endCoor[0], endCoor[1], "z"
+      "M", 115, 115, "L", startCoor[0], startCoor[1], "A", r, r, 1, largeArc, 1, endCoor[0], endCoor[1], "z"
     ].join(" ");
 
     o.paths.push({category: arc.category, data: path});
