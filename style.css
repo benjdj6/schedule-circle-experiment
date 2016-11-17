@@ -1,28 +1,24 @@
 circle {
-  fill: #CAFCD8;
+  fill: #FF530D;
   z-index: 2;
 }
 
-path {
-  stroke: #F7E967;
-  stroke-width: 3;
-  fill: transparent;
-  z-index: -1;
-}
-
 path.school {
-  stroke: #A9CF54;
-  stroke-width: 3;
-  fill: transparent;
+  fill: #3F5765;
+  opacity: 0.5;
 }
 
 path.work {
-  stroke: #04BFBF;
-  stroke-width: 3;
-  fill: transparent;
+  fill: #BDD4DE;
+  opacity: 0.6;
+}
+
+path.home {
+  fill: #2B3A42;
+  opacity: 0.5;
 }
 
 svg.pie {
-  width: 250px;
-  height: 250px;
+  width: 275px;
+  height: 275px;
 }

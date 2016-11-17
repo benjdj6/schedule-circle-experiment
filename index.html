@@ -10,18 +10,34 @@
 
     <form id="event" ng-submit="createEvent();">
       <input type="text" placeholder="Event Name" 
-        ng-model="name"><br>
+        ng-model="name">
+      Category: 
+      <select ng-model="category">
+        <option value="home">Home</option>
+        <option value="school">School</option>
+        <option value="work">Work</option>
+      </select>
+      Priority: 
+      <select ng-model="priority">
+        <option value="high">High</option>
+        <option value="med">Medium</option>
+        <option value="low">Low</option>
+      </select><br>
       Start Time:
-      <input id="start_hr" type="number" min="00" max="12" placeholder="HH" ng-model="start_hr"> :
-      <input id="start_mn" type="number" min="00" max="59" placeholder="MM" ng-model="start_mn">
+      <input type="number" min="00" max="12" 
+      defaultValue="0" ng-model="start_hr"> :
+      <input type="number" min="00" max="59" 
+      defaultValue="0" ng-model="start_mn">
       <input type="radio" value="am"
         ng-model="start_tod">AM
       <input type="radio" value="pm"
         ng-model="start_tod">PM<br>
 
       End Time:
-      <input id="end_hr" type="number" min="00" max="12" placeholder="HH" ng-model="end_hr"> :
-      <input id="end_mn" type="number" min="00" max="59" placeholder="MM" ng-model="end_mn">
+      <input type="number" min="00" max="12" 
+      defaultValue="0" ng-model="end_hr"> :
+      <input type="number" min="00" max="59" 
+      defaultValue="0" ng-model="end_mn">
       <input type="radio" value="am"
         ng-model="end_tod">AM
       <input type="radio" value="pm"
@@ -32,7 +48,7 @@
     <svg class="pie">
       <circle cx="115" cy="115" r="45"></circle>
       <g ng-repeat="path in paths">
-        <path d="{{path.data}}"/>
+        <path class="{{path.category}}" d="{{path.data}}" />
       </g>
     </svg>
 </body>

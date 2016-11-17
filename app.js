@@ -1,6 +1,7 @@
 
 var app = angular.module('schedule', []);
 
+//Take time and calculate radians around the circle
 function timeToRadians(hour, minute, timeofday) {
   if(timeofday === "pm" && hour != 12) {
     hour += 12;
@@ -10,6 +11,7 @@ function timeToRadians(hour, minute, timeofday) {
   return ratio * 2 * Math.PI;
 }
 
+//Take radians and radius and calculate the cartesian coordinates
 function polarToCartesian(r, radians) {
   x = 115 + r * Math.cos(radians);
   y = 115 + r * Math.sin(radians);
@@ -23,16 +25,22 @@ app.factory('arcs', [function() {
   };
 
   o.create = function(arc) {
+    var r = 115;
+    if(arc.priority === "low") {
+      r = 75;
+    } else if (arc.priority === "med") {
+      r = 95;
+    }
     var start = timeToRadians(arc.sthour, arc.stmin, arc.sttod);
     var end = timeToRadians(arc.endhour, arc.endmin, arc.endtod);
-    var startCoor = polarToCartesian(115, start);
-    var endCoor = polarToCartesian(115, end);
+    var startCoor = polarToCartesian(r, start);
+    var endCoor = polarToCartesian(r, end);
 
     var path = [
-      "M", 115, 115, "L", startCoor[0], startCoor[1], "A", 115, 115, 1, 0, 1, endCoor[0], endCoor[1], "z"
+      "M", 115, 115, "L", startCoor[0], startCoor[1], "A", r, r, 1, 0, 1, endCoor[0], endCoor[1], "z"
     ].join(" ");
 
-    o.paths.push({data: path});
+    o.paths.push({category: arc.category, data: path});
   };
 
   return o;
@@ -47,7 +55,8 @@ app.controller('MainCtrl', [
       //Check that all fields are filled out
       if(!$scope.name || !$scope.start_hr || 
           !$scope.start_mn || !$scope.start_tod || !$scope.end_hr ||
-          !$scope.end_mn || !$scope.end_tod) {
+          !$scope.end_mn || !$scope.end_tod || !$scope.category ||
+          !$scope.priority) {
         return;
       }
       arcs.create({
@@ -57,7 +66,9 @@ app.controller('MainCtrl', [
         sttod: $scope.start_tod,
         endhour: $scope.end_hr,
         endmin: $scope.end_mn,
-        endtod: $scope.end_tod
+        endtod: $scope.end_tod,
+        category: $scope.category,
+        priority: $scope.priority
       });
     };
   }
