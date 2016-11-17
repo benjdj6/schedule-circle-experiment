@@ -46,7 +46,7 @@
     </form>
 
     <svg class="pie">
-      <g ng-repeat="path in paths">
+      <g ng-repeat="path in paths" transform="rotate(-90 115 115)">
         <path class="{{path.category}}" d="{{path.data}}" />
       </g>
       <circle cx="115" cy="115" r="45"></circle>

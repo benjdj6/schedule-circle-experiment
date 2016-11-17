@@ -14,6 +14,6 @@ The data submitted from the form is sent to the MainCtrl controller. The control
 
 ###TODO:
 * More README info
-* Fix 90˚ problem
 * implement way to see existing event info
+* fix large degree
 
