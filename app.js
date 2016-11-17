@@ -10,6 +10,13 @@ function timeToRadians(hour, minute, timeofday) {
   return ratio * 2 * Math.PI;
 }
 
+function polarToCartesian(r, radians) {
+  x = 115 + r * Math.cos(radians);
+  y = 115 + r * Math.sin(radians);
+
+  return [x, y];
+}
+
 app.factory('arcs', [function() {
   var o = {
     path: []
@@ -18,8 +25,8 @@ app.factory('arcs', [function() {
   o.create = function(arc) {
     var start = timeToRadians(arc.sthour, arc.stmin, arc.sttod);
     var end = timeToRadians(arc.endhour, arc.endmin, arc.endtod);
-    console.log(start);
-    console.log(end);
+    startCoor = polarToCartesian(115, start);
+    endCoor = polarToCartesian(115, end);
   };
 
   return o;
