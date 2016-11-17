@@ -19,14 +19,20 @@ function polarToCartesian(r, radians) {
 
 app.factory('arcs', [function() {
   var o = {
-    path: []
+    paths: []
   };
 
   o.create = function(arc) {
     var start = timeToRadians(arc.sthour, arc.stmin, arc.sttod);
     var end = timeToRadians(arc.endhour, arc.endmin, arc.endtod);
-    startCoor = polarToCartesian(115, start);
-    endCoor = polarToCartesian(115, end);
+    var startCoor = polarToCartesian(115, start);
+    var endCoor = polarToCartesian(115, end);
+
+    var path = [
+      "M", 115, 115, "L", startCoor[0], startCoor[1], "A", 115, 115, 1, 0, 1, endCoor[0], endCoor[1], "z"
+    ].join(" ");
+
+    console.log(path);
   };
 
   return o;
