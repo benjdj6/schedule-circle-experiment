@@ -7,10 +7,7 @@
     
 </head>
 <body ng-app="schedule" ng-controller="MainCtrl">
-    <svg class="pie">
-      <path class="school" id="arc" />
-      <circle cx="115" cy="115" r="45"></circle>
-    </svg>
+
     <form id="event" ng-submit="createEvent();">
       <input type="text" placeholder="Event Name" 
         ng-model="name"><br>
@@ -31,5 +28,12 @@
         ng-model="end_tod">PM<br>
       <button type="submit">Submit</button>
     </form>
+
+    <svg class="pie">
+      <circle cx="115" cy="115" r="45"></circle>
+      <g ng-repeat="path in paths">
+        <path d="{{path.data}}"/>
+      </g>
+    </svg>
 </body>
 </html>

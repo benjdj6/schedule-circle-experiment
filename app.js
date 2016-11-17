@@ -32,7 +32,7 @@ app.factory('arcs', [function() {
       "M", 115, 115, "L", startCoor[0], startCoor[1], "A", 115, 115, 1, 0, 1, endCoor[0], endCoor[1], "z"
     ].join(" ");
 
-    o.paths.push(path);
+    o.paths.push({data: path});
   };
 
   return o;
@@ -42,6 +42,7 @@ app.controller('MainCtrl', [
   '$scope',
   'arcs',
   function($scope, arcs) {
+    $scope.paths = arcs.paths;
     $scope.createEvent = function() {
       //Check that all fields are filled out
       if(!$scope.name || !$scope.start_hr || 
