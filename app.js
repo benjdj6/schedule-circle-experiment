@@ -1,13 +1,13 @@
 
 var app = angular.module('schedule', []);
 
-function timeToDegrees(hour, minute, timeofday) {
+function timeToRadians(hour, minute, timeofday) {
   if(timeofday === "pm" && hour != 12) {
     hour += 12;
   }
   minute = minute/60.0;
   ratio = (minute + hour)/24.0;
-  return ratio * 360.0;
+  return ratio * 2 * Math.PI;
 }
 
 app.factory('arcs', [function() {
@@ -16,8 +16,8 @@ app.factory('arcs', [function() {
   };
 
   o.create = function(arc) {
-    var start = timeToDegrees(arc.sthour, arc.stmin, arc.sttod);
-    var end = timeToDegrees(arc.endhour, arc.endmin, arc.endtod);
+    var start = timeToRadians(arc.sthour, arc.stmin, arc.sttod);
+    var end = timeToRadians(arc.endhour, arc.endmin, arc.endtod);
     console.log(start);
     console.log(end);
   };
