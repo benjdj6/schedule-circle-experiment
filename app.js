@@ -1,27 +1,6 @@
 
 var app = angular.module('schedule', []);
 
-//Take time and calculate radians around the circle
-function timeToRadians(hour, minute, timeofday) {
-  if(timeofday === "pm" && hour != 12) {
-    hour += 12;
-  }
-  if(timeofday === "am" && hour == 12) {
-    hour -= 12;
-  }
-  minute = minute/60.0;
-  ratio = (minute + hour)/24.0;
-  return ratio * 2 * Math.PI;
-}
-
-//Take radians and radius and calculate the cartesian coordinates
-function polarToCartesian(r, radians) {
-  x = 115 + r * Math.cos(radians);
-  y = 115 + r * Math.sin(radians);
-
-  return [x, y];
-}
-
 app.factory('arcs', [function() {
   var o = {
     paths: []
@@ -34,16 +13,16 @@ app.factory('arcs', [function() {
     } else if (arc.priority === "med") {
       r = 95;
     }
-    var start = timeToRadians(arc.sthour, arc.stmin, arc.sttod);
-    var end = timeToRadians(arc.endhour, arc.endmin, arc.endtod);
+    var start = this.timeToRadians(arc.sthour, arc.stmin, arc.sttod);
+    var end = this.timeToRadians(arc.endhour, arc.endmin, arc.endtod);
 
     if(start >= end) {
       alert('Invalid start and end times!');
       return;
     }
 
-    var startCoor = polarToCartesian(r, start);
-    var endCoor = polarToCartesian(r, end);
+    var startCoor = this.polarToCartesian(r, start);
+    var endCoor = this.polarToCartesian(r, end);
 
     var largeArc = 0;
     if(end - start >= Math.PI) {
@@ -55,6 +34,27 @@ app.factory('arcs', [function() {
     ].join(" ");
 
     o.paths.push({category: arc.category, data: path});
+  };
+
+  //Take time and calculate radians around the circle
+  o.timeToRadians = function(hour, minute, timeofday) {
+    if(timeofday === "pm" && hour != 12) {
+      hour += 12;
+    }
+    if(timeofday === "am" && hour == 12) {
+      hour -= 12;
+    }
+    minute = minute/60.0;
+    ratio = (minute + hour)/24.0;
+    return ratio * 2 * Math.PI;
+  };
+
+  //Take radians and radius and calculate the cartesian coordinates
+  o.polarToCartesian = function(r, radians) {
+    x = 115 + r * Math.cos(radians);
+    y = 115 + r * Math.sin(radians);
+
+    return [x, y];
   };
 
   return o;
