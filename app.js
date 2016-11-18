@@ -7,12 +7,7 @@ app.factory('arcs', [function() {
   };
 
   o.create = function(arc) {
-    var r = 115;
-    if(arc.priority === "low") {
-      r = 75;
-    } else if (arc.priority === "med") {
-      r = 95;
-    }
+    var r = 55 + (arc.priority * 20);
     var start = this.timeToRadians(arc.sthour, arc.stmin, arc.sttod);
     var end = this.timeToRadians(arc.endhour, arc.endmin, arc.endtod);
 
@@ -33,7 +28,11 @@ app.factory('arcs', [function() {
       "M", 115, 115, "L", startCoor[0], startCoor[1], "A", r, r, 1, largeArc, 1, endCoor[0], endCoor[1], "z"
     ].join(" ");
 
-    o.paths.push({category: arc.category, data: path});
+    o.paths.push({
+      category: arc.category, 
+      priority: arc.priority, 
+      data: path
+    });
   };
 
   //Take time and calculate radians around the circle

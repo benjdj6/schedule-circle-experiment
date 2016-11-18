@@ -17,7 +17,7 @@
     <div class="col-md-3"></div>
     <div class="col-md-6 schedule">
     <svg class="pie">
-      <g ng-repeat="path in paths" transform="rotate(-90 115 115)">
+      <g ng-repeat="path in paths | orderBy: '-priority'" transform="rotate(-90 115 115)">
         <path class="{{path.category}}" d="{{path.data}}" />
       </g>
       <circle cx="115" cy="115" r="45"></circle>
@@ -48,9 +48,9 @@
       <label>Priority:</label>
       <select class="form-control" ng-model="priority">
         <option value="" disabled selected>Select priority</option>
-        <option value="high">High</option>
-        <option value="med">Medium</option>
-        <option value="low">Low</option>
+        <option value="3">High</option>
+        <option value="2">Medium</option>
+        <option value="1">Low</option>
       </select>
       </div>
       <div class="col-md-3"></div>
