@@ -28,6 +28,14 @@ path.home {
 }
 
 svg.pie {
-  width: 275px;
-  height: 275px;
+  width: 300px;
+  height: 300px;
+}
+
+form {
+  width: 100%;
+}
+
+.schedule {
+  text-align: center;
 }
