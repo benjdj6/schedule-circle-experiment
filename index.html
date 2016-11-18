@@ -1,52 +1,15 @@
 <html>
 <head>
-    <link href="style.css" rel="stylesheet">
+  <title>Circle Schedule</title>
 
-    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
-    <script src="app.js"></script>
+  <link href="style.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+  <script src="app.js"></script>
     
 </head>
 <body ng-app="schedule" ng-controller="MainCtrl">
-
-    <form id="event" ng-submit="createEvent();">
-      <input type="text" placeholder="Event Name" 
-        ng-model="name">
-      Category: 
-      <select ng-model="category">
-        <option value="" disabled selected>Select category</option>
-        <option value="home">Home</option>
-        <option value="school">School</option>
-        <option value="work">Work</option>
-      </select>
-      Priority: 
-      <select ng-model="priority">
-        <option value="" disabled selected>Select priority</option>
-        <option value="high">High</option>
-        <option value="med">Medium</option>
-        <option value="low">Low</option>
-      </select><br>
-      Start Time:
-      <input type="number" min="0" max="12" 
-      ng-model="start_hr" ng-init="start_hr=1"> :
-      <input type="number" min="0" max="59" 
-      ng-model="start_mn" ng-init="start_mn=0">
-      <input type="radio" value="am"
-        ng-model="start_tod">AM
-      <input type="radio" value="pm"
-        ng-model="start_tod">PM<br>
-
-      End Time:
-      <input type="number" min="0" max="12" 
-      ng-model="end_hr" ng-init="end_hr=2"> :
-      <input type="number" min="0" max="59" 
-      ng-model="end_mn" ng-init="end_mn=0">
-      <input type="radio" value="am"
-        ng-model="end_tod">AM
-      <input type="radio" value="pm"
-        ng-model="end_tod">PM<br>
-      <button type="submit">Submit</button>
-    </form>
 
     <svg class="pie">
       <g ng-repeat="path in paths" transform="rotate(-90 115 115)">
@@ -54,5 +17,54 @@
       </g>
       <circle cx="115" cy="115" r="45"></circle>
     </svg>
+
+    <form id="event" ng-submit="createEvent();">
+      <input type="text" placeholder="Event Name" 
+        ng-model="name">
+
+      Category: 
+      <select ng-model="category">
+        <option value="" disabled selected>Select category</option>
+        <option value="home">Home</option>
+        <option value="school">School</option>
+        <option value="work">Work</option>
+      </select>
+
+      Priority: 
+      <select ng-model="priority">
+        <option value="" disabled selected>Select priority</option>
+        <option value="high">High</option>
+        <option value="med">Medium</option>
+        <option value="low">Low</option>
+      </select><br>
+
+      Start Time:
+      <input type="number" min="0" max="12" 
+      ng-model="start_hr" ng-init="start_hr=1"> :
+
+      <input type="number" min="0" max="59" 
+      ng-model="start_mn" ng-init="start_mn=0">
+
+      <input type="radio" value="am"
+        ng-model="start_tod">AM
+
+      <input type="radio" value="pm"
+        ng-model="start_tod">PM<br>
+
+      End Time:
+      <input type="number" min="0" max="12" 
+      ng-model="end_hr" ng-init="end_hr=2"> :
+
+      <input type="number" min="0" max="59" 
+      ng-model="end_mn" ng-init="end_mn=0">
+
+      <input type="radio" value="am"
+        ng-model="end_tod">AM
+
+      <input type="radio" value="pm"
+        ng-model="end_tod">PM<br>
+
+      <button type="submit">Submit</button>
+    </form>
 </body>
 </html>
