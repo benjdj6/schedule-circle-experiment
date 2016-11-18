@@ -27,20 +27,20 @@
         <option value="low">Low</option>
       </select><br>
       Start Time:
-      <input type="number" min="00" max="12" 
-      placeholder="01" defaultValue="0" ng-model="start_hr"> :
-      <input type="number" min="00" max="59" 
-      placeholder="00" defaultValue="0" ng-model="start_mn">
+      <input type="number" min="0" max="12" 
+      ng-model="start_hr" ng-init="start_hr=1"> :
+      <input type="number" min="0" max="59" 
+      ng-model="start_mn" ng-init="start_mn=0">
       <input type="radio" value="am"
         ng-model="start_tod">AM
       <input type="radio" value="pm"
         ng-model="start_tod">PM<br>
 
       End Time:
-      <input type="number" min="00" max="12" 
-      placeholder="02" defaultValue="0" ng-model="end_hr"> :
-      <input type="number" min="00" max="59" 
-      placeholder="00" defaultValue="0" ng-model="end_mn">
+      <input type="number" min="0" max="12" 
+      ng-model="end_hr" ng-init="end_hr=2"> :
+      <input type="number" min="0" max="59" 
+      ng-model="end_mn" ng-init="end_mn=0">
       <input type="radio" value="am"
         ng-model="end_tod">AM
       <input type="radio" value="pm"
