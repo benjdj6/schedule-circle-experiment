@@ -1,6 +1,15 @@
+* {
+  font-family: 'Lato', sans-serif;
+}
+
 circle {
   fill: #FF530D;
   z-index: 2;
+}
+
+path:hover {
+  stroke: black;
+  stroke-width: 2px;
 }
 
 path.school {

@@ -67,6 +67,7 @@ app.controller('MainCtrl', [
           !$scope.start_mn || !$scope.start_tod || !$scope.end_hr ||
           !$scope.end_mn || !$scope.end_tod || !$scope.category ||
           !$scope.priority) {
+        alert('Invalid form entry!')
         return;
       }
       arcs.create({

@@ -16,6 +16,9 @@ The data submitted from the form is sent to the MainCtrl controller. The control
 
 ###TODO:
 * More README info
+* fix 0 value bug
 * make form better looking
 * implement way to see existing event info
+* move functions into factory
+* stretch - allow changing color schemes
 

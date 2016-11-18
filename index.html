@@ -2,6 +2,7 @@
 <head>
     <link href="style.css" rel="stylesheet">
 
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
     <script src="app.js"></script>
     
@@ -13,21 +14,23 @@
         ng-model="name">
       Category: 
       <select ng-model="category">
+        <option value="" disabled selected>Select category</option>
         <option value="home">Home</option>
         <option value="school">School</option>
         <option value="work">Work</option>
       </select>
       Priority: 
       <select ng-model="priority">
+        <option value="" disabled selected>Select priority</option>
         <option value="high">High</option>
         <option value="med">Medium</option>
         <option value="low">Low</option>
       </select><br>
       Start Time:
       <input type="number" min="00" max="12" 
-      defaultValue="0" ng-model="start_hr"> :
+      placeholder="01" defaultValue="0" ng-model="start_hr"> :
       <input type="number" min="00" max="59" 
-      defaultValue="0" ng-model="start_mn">
+      placeholder="00" defaultValue="0" ng-model="start_mn">
       <input type="radio" value="am"
         ng-model="start_tod">AM
       <input type="radio" value="pm"
@@ -35,9 +38,9 @@
 
       End Time:
       <input type="number" min="00" max="12" 
-      defaultValue="0" ng-model="end_hr"> :
+      placeholder="02" defaultValue="0" ng-model="end_hr"> :
       <input type="number" min="00" max="59" 
-      defaultValue="0" ng-model="end_mn">
+      placeholder="00" defaultValue="0" ng-model="end_mn">
       <input type="radio" value="am"
         ng-model="end_tod">AM
       <input type="radio" value="pm"
