@@ -10,12 +10,31 @@ app.factory('arcs', [function() {
     var r = 55 + (arc.priority * 20);
     var start = this.timeToRadians(arc.sthour, arc.stmin, arc.sttod);
     var end = this.timeToRadians(arc.endhour, arc.endmin, arc.endtod);
-
     if(start >= end) {
       alert('Invalid start and end times!');
       return;
     }
 
+    if(arc.sttod == arc.endtod) {
+      this.oneArc(r, start * 2, end * 2, arc.category, arc.priority, arc.sttod);
+    }
+    else {
+      this.splitArc(r, start, end, arc.category, arc.priority);
+    }
+  };
+
+  o.splitArc = function(r, start, end, category, priority) {
+    am_start = 2 * start;
+    am_end = (2 * Math.PI) - 0.0001;
+
+    pm_start = 0;
+    pm_end = 2 * (end - Math.PI);
+
+    o.oneArc(r, am_start, am_end, category, priority, "am");
+    o.oneArc(r, pm_start, pm_end, category, priority, "pm");
+  }
+
+  o.oneArc = function(r, start, end, category, priority, timeof) {
     var startCoor = this.polarToCartesian(r, start);
     var endCoor = this.polarToCartesian(r, end);
 
@@ -29,11 +48,14 @@ app.factory('arcs', [function() {
     ].join(" ");
 
     o.paths.push({
-      category: arc.category, 
-      priority: arc.priority, 
+      category: category, 
+      priority: priority,
+      time_of: timeof, 
       data: path
     });
-  };
+
+    console.log(o.paths);
+  }
 
   //Take time and calculate radians around the circle
   o.timeToRadians = function(hour, minute, timeofday) {

@@ -15,9 +15,17 @@
 
   <div class="row">
     <div class="col-md-3"></div>
-    <div class="col-md-6 schedule">
+    <div class="col-md-3 schedule am">
     <svg class="pie">
-      <g ng-repeat="path in paths | orderBy: '-priority'" transform="rotate(-90 115 115)">
+      <g ng-repeat="path in paths | filter: 'am' | orderBy: '-priority'" transform="rotate(-90 115 115)">
+        <path class="{{path.category}}" d="{{path.data}}" />
+      </g>
+      <circle cx="115" cy="115" r="45"></circle>
+    </svg>
+    </div>
+    <div class="col-md-3 schedule pm">
+    <svg class="pie">
+      <g ng-repeat="path in paths | filter: 'pm' | orderBy: '-priority'" transform="rotate(-90 115 115)">
         <path class="{{path.category}}" d="{{path.data}}" />
       </g>
       <circle cx="115" cy="115" r="45"></circle>

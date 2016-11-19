@@ -2,7 +2,7 @@
   font-family: 'Lato', sans-serif;
 }
 
-circle {
+.am circle {
   fill: #FF530D;
   z-index: 2;
 }
@@ -12,18 +12,37 @@ path:hover {
   stroke-width: 2px;
 }
 
-path.school {
+.am path.school {
   fill: #56778A;
   opacity: 0.5;
 }
 
-path.work {
+.am path.work {
   fill: #BDD4DE;
   opacity: 0.5;
 }
 
-path.home {
+.am path.home {
   fill: #2B3A42;
+  opacity: 0.5;
+}
+
+.pm circle {
+  fill: #334D5C;
+}
+
+.pm path.school {
+  fill: #E27A3F;
+  opacity: 0.5;
+}
+
+.pm path.work {
+  fill: #DF5A49;
+  opacity: 0.5;
+}
+
+.pm path.home {
+  fill: #EFC94C;
   opacity: 0.5;
 }
 
