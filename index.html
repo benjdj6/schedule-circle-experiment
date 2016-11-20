@@ -13,30 +13,37 @@
 <body ng-app="schedule" ng-controller="MainCtrl">
 <div class="container">
 
+  <!-- The two circles -->
   <div class="row">
     <div class="col-md-3"></div>
+
     <div class="col-md-3 schedule am">
-    <svg class="pie">
-      <g ng-repeat="path in paths | filter: 'am' | orderBy: '-priority'" transform="rotate(-90 115 115)">
-        <path class="{{path.category}}" d="{{path.data}}" />
-      </g>
-      <circle cx="115" cy="115" r="45"></circle>
-    </svg>
+      <svg class="pie">
+        <g ng-repeat="path in paths | filter: 'am' | orderBy: '-priority'" transform="rotate(-90 150 150)">
+          <path class="{{path.category}}" d="{{path.data}}" />
+        </g>
+        <circle cx="150" cy="150" r="45"></circle>
+      </svg>
     </div>
+
     <div class="col-md-3 schedule pm">
-    <svg class="pie">
-      <g ng-repeat="path in paths | filter: 'pm' | orderBy: '-priority'" transform="rotate(-90 115 115)">
-        <path class="{{path.category}}" d="{{path.data}}" />
-      </g>
-      <circle cx="115" cy="115" r="45"></circle>
-    </svg>
+      <svg class="pie">
+        <g ng-repeat="path in paths | filter: 'pm' | orderBy: '-priority'" transform="rotate(-90 150 150)">
+          <path class="{{path.category}}" d="{{path.data}}" />
+        </g>
+        <circle cx="150" cy="150" r="45"></circle>
+      </svg>
     </div>
+
     <div class="col-md-3"></div>
+
   </div>
 
+  <!-- Form for Creating Events -->
   <form id="event" ng-submit="createEvent();">
     <div class="row">
       <div class="col-md-3"></div>
+
       <div class="col-md-2">
         <label>Event Name:</label>
         <input type="text" placeholder="Meeting" 
@@ -44,24 +51,27 @@
       </div>
 
       <div class="col-md-2">
-      <label>Category:</label>
-      <select class="form-control" ng-model="category">
-        <option value="" disabled selected>Select category</option>
-        <option value="home">Home</option>
-        <option value="school">School</option>
-        <option value="work">Work</option>
-      </select>
+        <label>Category:</label>
+        <select class="form-control" ng-model="category">
+          <option value="" disabled selected>Select category</option>
+          <option value="home">Home</option>
+          <option value="school">School</option>
+          <option value="work">Work</option>
+        </select>
       </div>
+
       <div class="col-md-2">
-      <label>Priority:</label>
-      <select class="form-control" ng-model="priority">
-        <option value="" disabled selected>Select priority</option>
-        <option value="3">High</option>
-        <option value="2">Medium</option>
-        <option value="1">Low</option>
-      </select>
+        <label>Priority:</label>
+        <select class="form-control" ng-model="priority">
+          <option value="" disabled selected>Select priority</option>
+          <option value="3">High</option>
+          <option value="2">Medium</option>
+          <option value="1">Low</option>
+        </select>
       </div>
+
       <div class="col-md-3"></div>
+
     </div>
 
     <div class="row">
@@ -79,6 +89,7 @@
         <input type="radio" value="pm"
         ng-model="start_tod">PM
       </div>
+
       <div class="col-md-3">
         <label>End Time:</label><br>
         <input type="number" min="0" max="12" 
@@ -93,13 +104,15 @@
         <input type="radio" value="pm"
         ng-model="end_tod">PM
       </div>
+
     </div>
+
     <div class="row">
       <div class="col-md-1 col-md-offset-5">
-      <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </div>
     </div>
-    </form>
+  </form>
 
 </dig>
 </body>

@@ -44,7 +44,7 @@ app.factory('arcs', [function() {
     }
 
     var path = [
-      "M", 115, 115, "L", startCoor[0], startCoor[1], "A", r, r, 1, largeArc, 1, endCoor[0], endCoor[1], "z"
+      "M", 150, 150, "L", startCoor[0], startCoor[1], "A", r, r, 1, largeArc, 1, endCoor[0], endCoor[1], "z"
     ].join(" ");
 
     o.paths.push({
@@ -72,8 +72,8 @@ app.factory('arcs', [function() {
 
   //Take radians and radius and calculate the cartesian coordinates
   o.polarToCartesian = function(r, radians) {
-    x = 115 + r * Math.cos(radians);
-    y = 115 + r * Math.sin(radians);
+    x = 150 + r * Math.cos(radians);
+    y = 150 + r * Math.sin(radians);
 
     return [x, y];
   };
