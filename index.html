@@ -20,22 +20,28 @@
     <div class="col-md-3 schedule am">
       <svg class="pie">
         <g ng-repeat="path in paths | filter:{time_of:'am'} | orderBy: '-priority'" transform="rotate(-90 150 150)">
-          <path class="{{path.category}}" d="{{path.data}}" />
+          <path class="{{path.category}}" d="{{path.data}}" ng-click="showEvent(path.name, path.start, path.end)"/>
         </g>
-        <circle cx="150" cy="150" r="45"></circle>
+        <circle cx="150" cy="150" r="45" ng-click="selected=false"></circle>
       </svg>
     </div>
 
     <div class="col-md-3 schedule pm">
       <svg class="pie">
         <g ng-repeat="path in paths | filter:{time_of:'pm'} | orderBy: '-priority'" transform="rotate(-90 150 150)">
-          <path class="{{path.category}}" d="{{path.data}}" />
+          <path class="{{path.category}}" d="{{path.data}}" ng-click="showEvent(path.name, path.start, path.end)" />
         </g>
-        <circle cx="150" cy="150" r="45"></circle>
+        <circle cx="150" cy="150" r="45" ng-click="selected=false"></circle>
       </svg>
     </div>
 
-    <div class="col-md-3"></div>
+    <div class="col-md-3">
+      <div ng-show="selected">
+        <h1>{{title}}</h1>
+        <p>Start Time: {{start}}</p>
+        <p>End Time: {{end}}</p>
+      </div>
+    </div>
 
   </div>
 

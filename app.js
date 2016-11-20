@@ -79,8 +79,6 @@ app.factory('arcs', [function() {
       time_of: timeof, 
       data: path
     });
-
-    console.log(o.paths);
   }
 
   //Take time and calculate radians around the circle
@@ -113,6 +111,16 @@ app.controller('MainCtrl', [
   'arcs',
   function($scope, arcs) {
     $scope.paths = arcs.paths;
+    $scope.title = "";
+    $scope.start = "";
+    $scope.end = "";
+    $scope.selected = false;
+    $scope.showEvent= function(title, start, end) {
+      $scope.title = title;
+      $scope.start = start;
+      $scope.end = end;
+      $scope.selected = true;
+    };
     $scope.createEvent = function() {
       //Check that all fields are filled out
       if(!$scope.name || $scope.start_hr == undefined || 
