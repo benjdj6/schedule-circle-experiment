@@ -1,11 +1,15 @@
 
 var app = angular.module('schedule', []);
 
+//The factory for arcs containing all relevant functions
 app.factory('arcs', [function() {
   var o = {
     paths: []
   };
 
+  //Main create arc function
+  //Determines if arcs should be drawn on one or both circles
+  //Calls appropriate function
   o.create = function(arc) {
     var r = 55 + (arc.priority * 20);
     var start = this.timeToRadians(arc.sthour, arc.stmin, arc.sttod);
@@ -23,6 +27,8 @@ app.factory('arcs', [function() {
     }
   };
 
+  //Splits the arc into two, one for AM the other for PM
+  //Then calls the oneArc function once for each
   o.splitArc = function(r, start, end, category, priority) {
     am_start = 2 * start;
     am_end = (2 * Math.PI) - 0.0001;
@@ -34,6 +40,8 @@ app.factory('arcs', [function() {
     o.oneArc(r, pm_start, pm_end, category, priority, "pm");
   }
 
+  //Calculates cartesian coordinates, generates path
+  //Then adds to the paths array
   o.oneArc = function(r, start, end, category, priority, timeof) {
     var startCoor = this.polarToCartesian(r, start);
     var endCoor = this.polarToCartesian(r, end);
@@ -81,6 +89,7 @@ app.factory('arcs', [function() {
   return o;
 }]);
 
+//Controller for index.html handles form submissions
 app.controller('MainCtrl', [
   '$scope',
   'arcs',
