@@ -52,10 +52,28 @@ app.factory('arcs', [function() {
     }
 
     var path = [
-      "M", 150, 150, "L", startCoor[0], startCoor[1], "A", r, r, 1, largeArc, 1, endCoor[0], endCoor[1], "z"
+      "M", 150, 150, "L", startCoor[0], startCoor[1], "A", r, r, 
+      1, largeArc, 1, endCoor[0], endCoor[1], "z"
     ].join(" ");
 
+    if(arc.stmin < 10 && arc.stmin !== "00") {
+      arc.stmin = "0" + arc.stmin;
+    }
+
+    if(arc.endmin < 10 && arc.endmin !== "00") {
+      arc.endmin = "0" + arc.endmin;
+    }
+
+    var start_time = arc.sthour + ":" + arc.stmin + 
+      " " + arc.sttod.toUpperCase();
+
+    var end_time = arc.endhour + ":" + arc.endmin +
+      " " + arc.endtod.toUpperCase();
+
     o.paths.push({
+      name: arc.name,
+      start: start_time,
+      end: end_time,
       category: arc.category, 
       priority: arc.priority,
       time_of: timeof, 

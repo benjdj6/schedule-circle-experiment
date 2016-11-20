@@ -19,7 +19,7 @@
 
     <div class="col-md-3 schedule am">
       <svg class="pie">
-        <g ng-repeat="path in paths | filter: 'am' | orderBy: '-priority'" transform="rotate(-90 150 150)">
+        <g ng-repeat="path in paths | filter:{time_of:'am'} | orderBy: '-priority'" transform="rotate(-90 150 150)">
           <path class="{{path.category}}" d="{{path.data}}" />
         </g>
         <circle cx="150" cy="150" r="45"></circle>
@@ -28,7 +28,7 @@
 
     <div class="col-md-3 schedule pm">
       <svg class="pie">
-        <g ng-repeat="path in paths | filter: 'pm' | orderBy: '-priority'" transform="rotate(-90 150 150)">
+        <g ng-repeat="path in paths | filter:{time_of:'pm'} | orderBy: '-priority'" transform="rotate(-90 150 150)">
           <path class="{{path.category}}" d="{{path.data}}" />
         </g>
         <circle cx="150" cy="150" r="45"></circle>
