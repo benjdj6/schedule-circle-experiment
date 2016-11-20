@@ -12,6 +12,12 @@ The length of the event is represented in the degrees of the wedge. The category
 
 <img src="assets/demo.gif" height="350"/>
 
+###How to Use
+
+Open the `index.html` document in your browser of choice. Fill out the form with event details and click submit to see the arc(s) representing the event show up on the circles. 
+
+If you wish to see details of an event you've already created click on the arc. To the right of the circles the event name and the start and end times will be shown. If you no longer want to see that information, just click inside one of the circles to make it disappear. 
+
 ###Implementation:
 
 The project uses HTML5 forms, Bootstrap, and Angular.js. The circle and wedges are drawn with SVG.
@@ -21,5 +27,4 @@ The data submitted from the form is sent to the MainCtrl controller. The control
 ###TODO:
 
 * More README info
-* implement way to see existing event info
 * stretch - allow changing color schemes
