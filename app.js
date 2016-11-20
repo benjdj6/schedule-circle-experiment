@@ -20,29 +20,29 @@ app.factory('arcs', [function() {
     }
 
     if(arc.sttod == arc.endtod) {
-      this.oneArc(r, start * 2, end * 2, arc.category, arc.priority, arc.sttod);
+      this.oneArc(r, start * 2, end * 2, arc, arc.sttod);
     }
     else {
-      this.splitArc(r, start, end, arc.category, arc.priority);
+      this.splitArc(r, start, end, arc);
     }
   };
 
   //Splits the arc into two, one for AM the other for PM
   //Then calls the oneArc function once for each
-  o.splitArc = function(r, start, end, category, priority) {
+  o.splitArc = function(r, start, end, arc) {
     am_start = 2 * start;
     am_end = (2 * Math.PI) - 0.0001;
 
     pm_start = 0;
     pm_end = 2 * (end - Math.PI);
 
-    o.oneArc(r, am_start, am_end, category, priority, "am");
-    o.oneArc(r, pm_start, pm_end, category, priority, "pm");
+    o.oneArc(r, am_start, am_end, arc, "am");
+    o.oneArc(r, pm_start, pm_end, arc, "pm");
   }
 
   //Calculates cartesian coordinates, generates path
   //Then adds to the paths array
-  o.oneArc = function(r, start, end, category, priority, timeof) {
+  o.oneArc = function(r, start, end, arc, timeof) {
     var startCoor = this.polarToCartesian(r, start);
     var endCoor = this.polarToCartesian(r, end);
 
@@ -56,8 +56,8 @@ app.factory('arcs', [function() {
     ].join(" ");
 
     o.paths.push({
-      category: category, 
-      priority: priority,
+      category: arc.category, 
+      priority: arc.priority,
       time_of: timeof, 
       data: path
     });
