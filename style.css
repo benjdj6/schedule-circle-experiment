@@ -28,21 +28,21 @@ path:hover {
 }
 
 .pm circle {
-  fill: #334D5C;
+  fill: #02495E;
 }
 
 .pm path.school {
-  fill: #E27A3F;
+  fill: #ACBD86;
   opacity: 0.5;
 }
 
 .pm path.work {
-  fill: #DF5A49;
+  fill: #FFD6A0;
   opacity: 0.5;
 }
 
 .pm path.home {
-  fill: #EFC94C;
+  fill: #28544B;
   opacity: 0.5;
 }
 
