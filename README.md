@@ -26,5 +26,6 @@ The data submitted from the form is sent to the MainCtrl controller. The control
 
 ###TODO:
 
-* More README info
+* build simple node server
+* deploy on heroku
 * stretch - allow changing color schemes
