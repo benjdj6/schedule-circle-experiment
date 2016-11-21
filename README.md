@@ -12,6 +12,8 @@ The length of the event is represented in the degrees of the wedge. The category
 
 <img src="public/images/demo.gif" height="350"/>
 
+[Live Version on Heroku](https://circle-sched.herokuapp.com)
+
 ###How to Use
 
 Open the `index.html` document in your browser of choice. Fill out the form with event details and click submit to see the arc(s) representing the event show up on the circles. 
@@ -26,5 +28,4 @@ The data submitted from the form is sent to the MainCtrl controller. The control
 
 ###TODO:
 
-* deploy on heroku
 * stretch - allow changing color schemes
