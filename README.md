@@ -1,6 +1,6 @@
 # Schedule Circle
 
-<img src="assets/sample.png" />
+<img src="public/images/sample.png" />
 
 ###Introduction:
 
@@ -10,7 +10,7 @@ The length of the event is represented in the degrees of the wedge. The category
 
 ###In Action
 
-<img src="assets/demo.gif" height="350"/>
+<img src="public/images/demo.gif" height="350"/>
 
 ###How to Use
 
@@ -26,6 +26,5 @@ The data submitted from the form is sent to the MainCtrl controller. The control
 
 ###TODO:
 
-* build simple node server
 * deploy on heroku
 * stretch - allow changing color schemes
